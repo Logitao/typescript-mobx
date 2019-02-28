@@ -1,0 +1,38 @@
+{
+    "name": "typeqlfrontend",
+    "version": "1.0.0",
+    "main": "index.js",
+    "license": "MIT",
+    "dependencies": {
+        "axios": "^0.18.0",
+        "mobx": "^5.9.0",
+        "mobx-react": "^5.4.3",
+        "mobx-react-lite": "^1.0.1",
+        "react": "^16.8.2",
+        "react-dom": "^16.8.2",
+        "react-router": "^4.3.1",
+        "react-router-dom": "^4.3.1",
+        "react-use": "^5.3.1"
+    },
+    "devDependencies": {
+        "@types/axios": "^0.14.0",
+        "@types/lodash": "^4.14.121",
+        "@types/react": "^16.7.20",
+        "@types/react-dom": "^16.0.11",
+        "@types/react-router-dom": "^4.3.1",
+        "awesome-typescript-loader": "^5.2.1",
+        "html-webpack-plugin": "^3.2.0",
+        "mobx-react-devtools": "^6.0.3",
+        "prettier": "^1.15.3",
+        "script-ext-html-webpack-plugin": "^2.1.3",
+        "source-map-loader": "^0.2.4",
+        "typescript": "^3.2.4",
+        "webpack": "^4.28.4",
+        "webpack-cli": "^3.2.1",
+        "webpack-dev-server": "^3.1.14",
+        "webpack-merge": "^4.2.1"
+    },
+    "scripts": {
+        "start": "webpack-dev-server --config webpack.dev.js --mode development --open --hot --host localhost"
+    }
+}
