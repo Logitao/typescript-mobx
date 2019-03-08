@@ -1,6 +1,7 @@
 import { observer } from 'mobx-react-lite'
 import React, { Fragment } from 'react'
 import { RootStoreContext } from '../common/store'
+import { TodoModel } from '../common/store/todo.store'
 
 const App = observer(() => {
     const { counterStore } = React.useContext(RootStoreContext)
@@ -8,6 +9,7 @@ const App = observer(() => {
         <Fragment>
             <h1>{counterStore.count}</h1>
             <button onClick={() => counterStore.count++}>Increment</button>
+            <hr />
             <TodoForm />
         </Fragment>
     )
@@ -18,17 +20,14 @@ const TodoForm = observer(() => {
     return (
         <Fragment>
             {todoStore.todos.map((todo, index) => (
-                <div>{todo.text}</div>
+                <TodoItem key={index} todo={todo} />
             ))}
-            {console.log(todoStore.todos)}
             <button
                 onClick={() =>
                     todoStore.addTodo({
                         text: 'test',
                         done: false,
-                        id:
-                            Math.random() * 42355677312663412 +
-                            42355677312663412
+                        id: Math.random() * 42355677312663412 + 1
                     })
                 }
             >
@@ -36,5 +35,23 @@ const TodoForm = observer(() => {
             </button>
         </Fragment>
     )
+})
+
+interface TodoItemProps {
+    todo: TodoModel
+}
+const TodoItem: React.FC<TodoItemProps> = React.memo(({ todo }) => {
+    if (todo) {
+        return (
+            <div
+                style={{
+                    cursor: 'pointer',
+                    textDecoration: todo.done ? 'line-through' : 'none'
+                }}
+            >
+                {todo.text}
+            </div>
+        )
+    } else return null
 })
 export default App

@@ -6,4 +6,8 @@ export class RootStore {
     counterStore = new CounterStore(this)
     todoStore = new TodoStore(this)
 }
+
+export interface RootStoreFactory {
+    rootStore: RootStore
+}
 export const RootStoreContext = createContext(new RootStore())
